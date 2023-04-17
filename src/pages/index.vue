@@ -153,7 +153,7 @@ export default {
 			});
 		},
 		goBackend() {
-			window.open(`${this.$config.baseUrl}admin/dist/index.html`, "_blank");
+			window.open(`${this.$config.baseUrl}admin/index.html`, "_blank");
 		},
 		goMenu(path) {
             if (!localStorage.getItem('Token')) {
