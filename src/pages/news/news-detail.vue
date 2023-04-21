@@ -1,6 +1,6 @@
 <template>
   <div :style='{"width":"100%","padding":"30px 7% 40px","margin":"10px auto","position":"relative","background":"none","display":"block"}'>
-    <div class="section-title" :style='{"margin":"10px 0","fontSize":"20px","lineHeight":"54px","color":"#333","textAlign":"center","background":"linear-gradient(180deg, rgba(195,228,245,1) 0%, rgba(35,136,191,1) 100%),#c3e4f5"}'>新闻资讯</div>
+    <div class="section-title" :style='{"margin":"10px 0","fontSize":"20px","lineHeight":"54px","color":"#333","textAlign":"center",}'>新闻资讯</div>
     <div class="section-content">
       <div class="content-title">{{detail.title}}</div>
       <div class="content-sub-title">发布时间：{{detail.addtime}}</div>

@@ -1,6 +1,8 @@
 <template>
 	<div class="main-containers">
-		<div class="top-container" :style='{"padding":"0 0 0 10%","margin":"0 auto","alignItems":"center","display":"flex","justifyContent":"space-between","overflow":"hidden","top":"0","left":"0","background":"#333","width":"100%","position":"relative","height":"44px","zIndex":"1002"}'>
+		<div class="top-container" 
+		:style='{"padding":"0 0 0 10%","margin":"0 auto","alignItems":"center","display":"flex","justifyContent":"space-between","overflow":"hidden","top":"0","left":"0","background":"#333","width":"100%","position":"relative","height":"44px","zIndex":"1002"}'
+		>
 			<img v-if='false' :style='{"width":"44px","objectFit":"cover","borderRadius":"100%","display":"block","height":"44px"}' src='http://codegen.caihongy.cn/20201114/7856ba26477849ea828f481fa2773a95.jpg'>
 			<div v-if="true" :style='{"color":"#fff","width":"calc(100% - 360px)","fontSize":"20px"}'>疫情封控管理物资配送系统</div>
 			<div>

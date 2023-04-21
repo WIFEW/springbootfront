@@ -1,6 +1,6 @@
 <template>
 <div>
-	<div :style='{"padding":"0 7%","margin":"0 auto 0","borderRadius":"0","alignItems":"center","background":"linear-gradient(180deg, rgba(195,228,245,1) 0%, rgba(35,136,191,1) 100%),#c3e4f5","display":"flex","width":"100%","height":"50px"}' class="breadcrumb-preview">
+	<div :style='{"padding":"0 7%","margin":"0 auto 0","borderRadius":"0","alignItems":"center","display":"flex","width":"100%","height":"50px"}' class="breadcrumb-preview">
 		<el-breadcrumb :separator="'Ξ'" :style='{"fontSize":"14px","lineHeight":"1"}'>
 			<el-breadcrumb-item>首页</el-breadcrumb-item>
 			<el-breadcrumb-item v-for="(item, index) in breadcrumbItem" :key="index">{{item.name}}</el-breadcrumb-item>

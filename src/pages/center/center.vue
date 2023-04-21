@@ -1,20 +1,21 @@
 <template>
-<div class="center-preview" :style='{"width":"100%","padding":"0 0 40px","margin":"0 auto","position":"relative","background":"url(http://codegen.caihongy.cn/20230127/e1b074885e304a40bcfa7de91c22b700.png) no-repeat center bottom,#e0edf2"}'>
-	<div class="title" :style='{"margin":"10px 0","fontSize":"20px","lineHeight":"54px","color":"#333","textAlign":"center","background":"linear-gradient(180deg, rgba(195,228,245,1) 0%, rgba(35,136,191,1) 100%),#c3e4f5"}'>{{ title }}</div>
+<div class="center-preview" >
+	<div class="title"
+   :style='{"margin":"10px 0","fontSize":"20px","lineHeight":"54px","color":"#333","textAlign":"center",}'>{{ title }}</div>
 
     <el-tabs tab-position="left" :style='{"background":"none"}' @tab-click="handleClick">
       <el-tab-pane label="个人中心">
         <el-form class="center-preview-pv" ref="sessionForm" :model="sessionForm" :rules="rules" label-width="150px">
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='yonghu'" label="用户账号" prop="yonghuzhanghao">
+          <el-form-item  v-if="userTableName=='yonghu'" label="用户账号" prop="yonghuzhanghao">
             <el-input v-model="sessionForm.yonghuzhanghao" placeholder="用户账号" readonly></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='yonghu'" label="密码" prop="mima">
+          <el-form-item  v-if="userTableName=='yonghu'" label="密码" prop="mima">
             <el-input type="password" v-model="sessionForm.mima" placeholder="密码"></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='yonghu'" label="用户姓名" prop="yonghuxingming">
+          <el-form-item  v-if="userTableName=='yonghu'" label="用户姓名" prop="yonghuxingming">
             <el-input v-model="sessionForm.yonghuxingming" placeholder="用户姓名" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='yonghu'" label="头像">
+          <el-form-item  v-if="userTableName=='yonghu'" label="头像">
             <el-upload
               class="avatar-uploader"
               :action="uploadUrl"
@@ -25,42 +26,42 @@
               <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='yonghu'" label="性别">
+          <el-form-item  v-if="userTableName=='yonghu'" label="性别">
             <el-select v-model="sessionForm.xingbie" placeholder="请选择性别" >
               <el-option v-for="(item, index) in dynamicProp.xingbie" :key="index" :label="item" :value="item"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='yonghu'" label="手机号码" prop="shoujihaoma">
+          <el-form-item  v-if="userTableName=='yonghu'" label="手机号码" prop="shoujihaoma">
             <el-input v-model="sessionForm.shoujihaoma" placeholder="手机号码" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='gongyingshang'" label="供应商账号" prop="gongyingshangzhanghao">
+          <el-form-item  v-if="userTableName=='gongyingshang'" label="供应商账号" prop="gongyingshangzhanghao">
             <el-input v-model="sessionForm.gongyingshangzhanghao" placeholder="供应商账号" readonly></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='gongyingshang'" label="密码" prop="mima">
+          <el-form-item  v-if="userTableName=='gongyingshang'" label="密码" prop="mima">
             <el-input type="password" v-model="sessionForm.mima" placeholder="密码"></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='gongyingshang'" label="供应商名称" prop="gongyingshangmingcheng">
+          <el-form-item  v-if="userTableName=='gongyingshang'" label="供应商名称" prop="gongyingshangmingcheng">
             <el-input v-model="sessionForm.gongyingshangmingcheng" placeholder="供应商名称" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='gongyingshang'" label="负责人" prop="fuzeren">
+          <el-form-item  v-if="userTableName=='gongyingshang'" label="负责人" prop="fuzeren">
             <el-input v-model="sessionForm.fuzeren" placeholder="负责人" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='gongyingshang'" label="联系电话" prop="lianxidianhua">
+          <el-form-item  v-if="userTableName=='gongyingshang'" label="联系电话" prop="lianxidianhua">
             <el-input v-model="sessionForm.lianxidianhua" placeholder="联系电话" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='gongyingshang'" label="供应商地址" prop="gongyingshangdizhi">
+          <el-form-item  v-if="userTableName=='gongyingshang'" label="供应商地址" prop="gongyingshangdizhi">
             <el-input v-model="sessionForm.gongyingshangdizhi" placeholder="供应商地址" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='peisongyuan'" label="配送账号" prop="peisongzhanghao">
+          <el-form-item  v-if="userTableName=='peisongyuan'" label="配送账号" prop="peisongzhanghao">
             <el-input v-model="sessionForm.peisongzhanghao" placeholder="配送账号" readonly></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='peisongyuan'" label="密码" prop="mima">
+          <el-form-item  v-if="userTableName=='peisongyuan'" label="密码" prop="mima">
             <el-input type="password" v-model="sessionForm.mima" placeholder="密码"></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='peisongyuan'" label="配送姓名" prop="peisongxingming">
+          <el-form-item  v-if="userTableName=='peisongyuan'" label="配送姓名" prop="peisongxingming">
             <el-input v-model="sessionForm.peisongxingming" placeholder="配送姓名" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='peisongyuan'" label="头像">
+          <el-form-item  v-if="userTableName=='peisongyuan'" label="头像">
             <el-upload
               class="avatar-uploader"
               :action="uploadUrl"
@@ -71,129 +72,25 @@
               <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='peisongyuan'" label="性别">
+          <el-form-item  v-if="userTableName=='peisongyuan'" label="性别">
             <el-select v-model="sessionForm.xingbie" placeholder="请选择性别" >
               <el-option v-for="(item, index) in dynamicProp.xingbie" :key="index" :label="item" :value="item"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='peisongyuan'" label="联系电话" prop="lianxidianhua">
+          <el-form-item  v-if="userTableName=='peisongyuan'" label="联系电话" prop="lianxidianhua">
             <el-input v-model="sessionForm.lianxidianhua" placeholder="联系电话" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"padding":"10px","margin":"0 0 10px","background":"none"}' v-if="userTableName=='peisongyuan'" label="身份证号" prop="shenfenzhenghao">
+          <el-form-item  v-if="userTableName=='peisongyuan'" label="身份证号" prop="shenfenzhenghao">
             <el-input v-model="sessionForm.shenfenzhenghao" placeholder="身份证号" ></el-input>
           </el-form-item>
           <el-form-item :style='{"padding":"0","margin":"0"}'>
-            <el-button :style='{"border":"2px solid #2886bc","cursor":"pointer","padding":"0 35px","boxShadow":"inset 2px 0px 12px 0px #c2ddeb","margin":"0 20px 0 0","color":"#2886bc","outline":"none","borderRadius":"8px","background":"#fff","width":"auto","lineHeight":"40px","fontSize":"14px","height":"40px"}' type="primary" @click="onSubmit('sessionForm')">更新信息</el-button>
-            <el-button :style='{"border":"2px solid #ccc","cursor":"pointer","padding":"0 35px","boxShadow":"inset 0px 0px 12px 0px #eee","margin":"0","color":"#999","outline":"none","borderRadius":"8px","background":"rgba(255, 255, 255, 1)","width":"auto","lineHeight":"40px","fontSize":"14px","height":"40px"}' type="danger" @click="logout">退出登录</el-button>
+            <el-button 
+            :style='{"border":"2px solid #2886bc","cursor":"pointer","padding":"0 35px","boxShadow":"inset 2px 0px 12px 0px #c2ddeb","margin":"0 20px 0 0","color":"#2886bc","outline":"none","borderRadius":"8px","background":"#fff","width":"auto","lineHeight":"40px","fontSize":"14px","height":"40px"}' type="primary" @click="onSubmit('sessionForm')">更新信息</el-button>
+            <el-button 
+            :style='{"border":"2px solid #ccc","cursor":"pointer","padding":"0 35px","boxShadow":"inset 0px 0px 12px 0px #eee","margin":"0","color":"#999","outline":"none","borderRadius":"8px","background":"rgba(255, 255, 255, 1)","width":"auto","lineHeight":"40px","fontSize":"14px","height":"40px"}' type="danger" @click="logout">退出登录</el-button>
           </el-form-item>
         </el-form>
 		
-        <el-dialog title="用户充值" :visible.sync="dialogFormVisibleMoney" width="726px" center>
-          <el-form :model="chongzhiForm">
-            <el-form-item label="充值金额" label-width="120px">
-              <el-input type="number" v-model="chongzhiForm.money" autocomplete="off" placeholder="充值金额"></el-input>
-            </el-form-item>
-            <el-form-item label-width="120px">
-              <el-radio-group v-model="chongzhiForm.radio">
-                <el-radio style="margin-bottom: 30px" label="微信支付">
-                  <el-image
-                    style="width: 60px; height: 60px;vertical-align: middle;"
-                    :src="require('@/assets/weixin.png')"
-                    fit="fill"></el-image>
-                    <span style="display: inline-block;margin-left: 10px">微信支付</span>
-                </el-radio>
-                <el-radio label="支付宝支付">
-                  <el-image
-                    style="width: 60px; height: 60px;vertical-align: middle;"
-                    :src="require('@/assets/zhifubao.png')"
-                    fit="fill"></el-image>
-                    <span style="display: inline-block;margin-left: 10px">支付宝支付</span>
-                </el-radio>
-                <el-radio label="中国建设银行支付">
-                  <el-image
-                    style="width: 120px; height: 60px;vertical-align: middle;"
-                    :src="require('@/assets/jianshe.png')"
-                    fit="fill"></el-image>
-                </el-radio>
-                <el-radio label="中国农业银行支付">
-                  <el-image
-                    style="width: 126px; height: 60px;vertical-align: middle;"
-                    :src="require('@/assets/nongye.png')"
-                    fit="fill"></el-image>
-                </el-radio>
-                <el-radio label="中国银行支付">
-                  <el-image
-                    style="width: 140px; height: 60px;vertical-align: middle;"
-                    :src="require('@/assets/zhongguo.png')"
-                    fit="fill"></el-image>
-                </el-radio>
-                <el-radio label="交通银行支付">
-                  <el-image
-                    style="width: 120px; height: 60px;vertical-align: middle;"
-                    :src="require('@/assets/jiaotong.png')"
-                    fit="fill"></el-image>
-                </el-radio>
-              </el-radio-group>
-            </el-form-item>
-          </el-form>
-          <div slot="footer" class="dialog-footer">
-            <el-button @click="dialogFormVisibleMoney = false">取 消</el-button>
-            <el-button type="primary" @click="chongzhi">确认充值</el-button>
-          </div>
-        </el-dialog>
-        <el-dialog title="会员购买" :visible.sync="dialogFormVisibleVip" width="726px" center>
-          <el-form :model="chongzhiForm">
-            <el-form-item label="会员卡" label-width="120px">
-              <el-input readonly autocomplete="off" value="￥199/年"></el-input>
-            </el-form-item>
-            <el-form-item label-width="120px">
-              <el-radio-group v-model="chongzhiForm.radio">
-                <el-radio style="margin-bottom: 30px" label="微信支付">
-                  <el-image
-                    style="width: 60px; height: 60px;vertical-align: middle;"
-                    :src="require('@/assets/weixin.png')"
-                    fit="fill"></el-image>
-                    <span style="display: inline-block;margin-left: 10px">微信支付</span>
-                </el-radio>
-                <el-radio label="支付宝支付">
-                  <el-image
-                    style="width: 60px; height: 60px;vertical-align: middle;"
-                    :src="require('@/assets/zhifubao.png')"
-                    fit="fill"></el-image>
-                    <span style="display: inline-block;margin-left: 10px">支付宝支付</span>
-                </el-radio>
-                <el-radio label="中国建设银行支付">
-                  <el-image
-                    style="width: 120px; height: 60px;vertical-align: middle;"
-                    :src="require('@/assets/jianshe.png')"
-                    fit="fill"></el-image>
-                </el-radio>
-                <el-radio label="中国农业银行支付">
-                  <el-image
-                    style="width: 126px; height: 60px;vertical-align: middle;"
-                    :src="require('@/assets/nongye.png')"
-                    fit="fill"></el-image>
-                </el-radio>
-                <el-radio label="中国银行支付">
-                  <el-image
-                    style="width: 140px; height: 60px;vertical-align: middle;"
-                    :src="require('@/assets/zhongguo.png')"
-                    fit="fill"></el-image>
-                </el-radio>
-                <el-radio label="交通银行支付">
-                  <el-image
-                    style="width: 120px; height: 60px;vertical-align: middle;"
-                    :src="require('@/assets/jiaotong.png')"
-                    fit="fill"></el-image>
-                </el-radio>
-              </el-radio-group>
-            </el-form-item>
-          </el-form>
-          <div slot="footer" class="dialog-footer">
-            <el-button @click="dialogFormVisibleVip = false">取 消</el-button>
-            <el-button type="primary" @click="chongzhivip">确认支付</el-button>
-          </div>
-        </el-dialog>
       </el-tab-pane>
     </el-tabs>
 </div>
@@ -529,7 +426,6 @@
   .center-preview .el-tabs ::v-deep .el-tabs__header {
 	padding: 20px;
 	margin: 40px 0 0 7%;
-	background: linear-gradient(0deg, rgba(195,228,245,1) 0%, rgba(35,136,191,1) 100%);
 	width: 250px;
 	border-color: #eee;
 	border-width: 0;
@@ -559,7 +455,6 @@
   	padding: 0 20px;
   	margin: 10px 0;
   	color: #2886bc;
-  	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(236,244,249,1) 40%, rgba(255,255,255,1) 100%);
   	font-weight: 500;
   	font-size: 16px;
   	line-height: 54px;
@@ -574,7 +469,6 @@
   	padding: 0 20px;
   	margin: 10px 0;
   	color: #2886bc;
-  	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(236,244,249,1) 40%, rgba(255,255,255,1) 100%);
   	font-weight: 600;
   	font-size: 16px;
   	line-height: 54px;
@@ -586,7 +480,6 @@
   .center-preview .el-tabs ::v-deep .el-tabs__content .el-tab-pane {
   	padding: 60px 0 30px;
   	margin: 40px 7% 0 ;
-  	background: url(http://codegen.caihongy.cn/20230127/26adbfa03b974a4b8b465c121356adec.png) no-repeat left top,#fff;
   	width: 86%;
   }
   
