@@ -10,6 +10,8 @@ import News from '../pages/news/news-list'
 import NewsDetail from '../pages/news/news-detail'
 import wuzixinxiList from '../pages/wuzixinxi/list'
 import wuzixinxiDetail from '../pages/wuzixinxi/detail'
+// import wuzigoumaiDetail from '../pages/wuzigoumai/detail'
+import wuzigoumaiAdd from '../pages/wuzigoumai/add'
 
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
@@ -50,7 +52,11 @@ export default new VueRouter({
 				{
 					path: 'wuzixinxiDetail',
 					component: wuzixinxiDetail
-				}
+				},
+				{
+					path: 'wuzigoumaiAdd',
+					component: wuzigoumaiAdd
+				},
 			]
 		},
 		{
